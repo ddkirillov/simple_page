@@ -1,0 +1,32 @@
+<body>
+<div style="width:800px; margin:0 auto;">
+    <?php if (!$messages) { ?>
+        <div style="box-shadow: 0px 0px 10px #888">
+            No messages so far.
+        </div>
+    <?php } else { ?>
+        <?php foreach ($messages as $message) { ?>
+            <div style="box-shadow: 0px 0px 10px #888">
+                <h4><a href="?delete_id=<?=$message['id']?>" title="Delete">[x]</a> <?=$message['title']?></h4>
+                <p><?=$message['body']?></p>
+            </div>
+        <?php } ?>
+    <?php } ?>
+    <BR>
+    <?php if ($errorMessage) { ?>
+        <p style="color:Red">
+            <?=$errorMessage?>
+        </p>
+    <?php } ?>
+
+    <form method="POST" action=" ">
+        Title:<BR>
+        <input type="text" size="108" name="title">
+        <br>
+        Text:<br>
+        <textarea rows="10" cols="110" name="body"></textarea>
+        <br>
+        <input type="submit" value="New message">
+    </form>
+</div>
+</body>
