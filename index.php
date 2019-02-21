@@ -56,7 +56,7 @@ function render() {
 }
 
 function formatText($text) {
-    // Ïðîñòûå ñòàíäàðòíûå òýãè îáðàáîòàåì â öèêëå
+    // ÐŸÑ€Ð¾ÑÑ‚Ñ‹Ðµ ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ñ‹Ðµ Ñ‚ÑÐ³Ð¸ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÐ¼ Ð² Ñ†Ð¸ÐºÐ»Ðµ
     $simpleTags = [
       '**' => ['<b>',' </b>'],
       '__' => ['<u>',' </u>'],
@@ -66,7 +66,7 @@ function formatText($text) {
         $text    = preg_replace($pattern, $to[0] . '$1' . $to[1], $text);
     }
 
-    // Áîëåå ñëîæíûé òåã îòäåëüíî ((url|text))
+    // Ð‘Ð¾Ð»ÐµÐµ ÑÐ»Ð¾Ð¶Ð½Ñ‹Ð¹ Ñ‚ÐµÐ³ Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ð¾ ((url|text))
     $matches = [];
     preg_match_all('/\(\((https?:\/\/)?([^\|]+)\|([^\|]+)\)\)/',$text,$matches);
     foreach ($matches[0] as $key => $match) {
