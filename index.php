@@ -58,8 +58,8 @@ function render() {
 function formatText($text) {
     // Простые стандартные тэги обработаем в цикле
     $simpleTags = [
-      '**' => ['<b>',' </b>'],
-      '__' => ['<u>',' </u>'],
+      '**' => ['<b>', '</b>'],
+      '__' => ['<u>', '</u>'],
     ];
     foreach ($simpleTags as $from => $to) {
         $pattern = '/' . preg_quote($from) . '([^' . preg_quote($from) . ']+)' . preg_quote($from) . '/';
@@ -68,7 +68,7 @@ function formatText($text) {
 
     // Более сложный тег отдельно ((url|text))
     $matches = [];
-    preg_match_all('/\(\((https?:\/\/)?([^\|]+)\|([^\|]+)\)\)/',$text,$matches);
+    preg_match_all('/\(\((https?:\/\/)?([^\|]+)\|([^\|]+)\)\)/', $text, $matches);
     foreach ($matches[0] as $key => $match) {
         $text = str_replace($matches[0][$key], '<a href="' . ($matches[1][$key] ?: 'http://') . $matches[2][$key] . '">' . $matches[3][$key] . '</a>'  , $text);
     }
